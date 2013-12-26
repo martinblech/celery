@@ -87,6 +87,7 @@ def _get_current_app():
         set_default_app(Celery(
             'default',
             loader=os.environ.get('CELERY_LOADER') or 'default',
+            amqp=os.environ.get('CELERY_AMQP_CLS') or None,
             fixups=[],
             set_as_current=False, accept_magic_kwargs=True,
         ))
